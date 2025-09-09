@@ -1,0 +1,68 @@
+.InfoBox {
+    text-align: center ;
+}
+
+.cardcontainer {
+    display: flex ;
+    justify-content: center;
+    margin: 2rem ;
+}
+
+.infocard {
+    width : 50% ;
+    background-color: rgb(221, 234, 244) !important;
+    box-shadow: 0 4px 8px rgba( 0 , 0 , 0 , 0.2 ) !important;
+    transition: transform 0.2s ease , box-shadow 0.2s ease !important;
+}
+
+.allinfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin : 0.5rem ;
+}
+
+.datablocks {
+    /* border : 1px solid black ; */
+    width : 100px ;
+    height : 65px ;
+    background : linear-gradient(145deg , #ffffff , #f0f0f0 ) ;
+    padding : 2px ;
+    margin : 0.5rem ;
+    border-radius: 14px;
+    box-shadow: 0 4px 8px rgba( 0 , 0 , 0 , 0.2 ) ;
+    text-align: center;
+    transition: transform 0.2s ease , box-shadow 0.2s ease ;
+}
+
+.datablocks:hover {
+    transform: translateY(-5px) ;
+    box-shadow: 0 8px 16px rgba ( 0 , 0 , 0 , 0.3 ) ;
+}
+
+.dataname {
+
+    font-weight: bold;
+    color: black;
+
+}
+
+.css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input {
+    color : white !important ;
+}
+
+@media screen and ( min-width: 324px ) and ( max-width : 660px ) {
+
+    .cardcontainer {
+        margin : 1rem ;
+    }
+
+    .infocard {
+        width : 100% ;
+    }
+    
+    .allinfo {
+        margin: 0 ;
+    }
+
+}
