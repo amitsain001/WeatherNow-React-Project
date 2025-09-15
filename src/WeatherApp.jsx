@@ -24,7 +24,7 @@ export default function WeatherApp() {
 
     return (
         <div style = {{ textAlign : "center" }}>
-            <h2><i class="fa-solid fa-sun"></i> <b>WeatherNow</b></h2>
+            <h2><i className="fa-solid fa-sun"></i> <b className="title">WeatherNow</b></h2>
             <SearchBox updateInfo={updateInfo}/>
             <InfoBox info={weatherinfo}/>
         </div>
