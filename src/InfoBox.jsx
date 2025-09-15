@@ -50,7 +50,7 @@ export default function InfoBox ({info}) {
                                 <div className='datablocks'><i class="fa-solid fa-droplet"></i> <br></br> <span className='dataname'>Humidity</span>  <br></br> {info.Humidity}</div>
                                 <div className='datablocks'><i class="fa-solid fa-temperature-arrow-down"></i> <br></br><span className='dataname'>Temp Min</span>  {info.tempMin}&deg;C</div>
                                 <div className='datablocks'><i class="fa-solid fa-temperature-arrow-up"></i> <br></br> <span className='dataname'>Temp Max</span>  {info.tempMax}&deg;C</div>
-                                <div className='datablocks'><span className='dataname'>Feels Like</span>  {info.feels_like}&deg;C</div>
+                                <div className='datablocks'><i class="fa-solid fa-temperature-empty"></i><br></br><span className='dataname'>Feels Like</span>  {info.feels_like}&deg;C</div>
                                 <div className='datablocks'><i class="fa-solid fa-cloud"></i> <br></br> <span className='dataname'>Weather</span> <br></br> {info.weather}</div>
                                 <div className='datablocks'><i class="fa-solid fa-arrow-up-from-ground-water"></i> <br></br><span className='dataname'>Ground Level</span>  {info.Ground_Level}</div>
                                 <div className='datablocks'><i class="fa-solid fa-wind"></i> <br></br><span className='dataname'>Pressure</span> <br></br> {info.pressure}</div>
