@@ -1,71 +1,70 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import "./Info.css"
+// InfoBox.jsx
+import React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import "./Info.css";
 
-export default function InfoBox ({info}) {
+export default function InfoBox({ info, backgroundUrl }) {
+  // choose a small hero image for the card top if you want (or reuse background)
+  const hero = info.temperature >= 25 ? "/images/hot.jpg" : "/images/mild.jpg";
 
-    let HOT_URL = "https://images.fineartamerica.com/images-medium-large-5/summer-sky-with-bright-sun-rike-.jpg" ;
-    let COLD_URL = "https://www.findingtheuniverse.com/wp-content/uploads/2017/01/Blue2Bhour2BFinland_by_Laurence2BNorah.jpg" ;
-    let RAIN_URL = "https://static.vecteezy.com/system/resources/thumbnails/051/263/379/small/rainy-day-serenity-water-droplets-and-floating-autumn-leaves-photo.jpg" ;
-
-    return (
-
-        <div className="InfoBox">
-
-            <div className='cardcontainer'>
-
-                <Card  className='infocard'>
-
-                    <CardMedia
-                        sx={{ height: 140 }}
-                        image= {
-
-                            info.Humidity > 85 
-                            ? RAIN_URL 
-                            : info.temperature > 15
-                            ? HOT_URL 
-                            : COLD_URL
-
-                        } 
-
-                        title="green iguana"
-                    />
-
-                    <CardContent>
+  return (
+    <div className="InfoBox">
+      <div className="cardcontainer">
+        <Card className="infocard">
+            
+            <CardMedia
+                className="cardmedia"
+                component="div"
+                style={{ backgroundImage: `url(${backgroundUrl})` }}
+            />
 
 
-                        <Typography gutterBottom variant="h5" component="div" style={{fontWeight: "bold"}}>
+          <CardContent>
+            <Typography variant="h5" gutterBottom>{info.city}</Typography>
 
-                            {info.city}
-                            
-                        </Typography>
+            <div className="allinfo">
+              <div className="datablocks temp">
+                <i className="fa-solid fa-temperature-half"></i>
+                <span className="label">Temperature</span>
+                <div className="value">{info.temperature}°C</div>
+              </div>
 
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }} component={"span"}>
+              <div className="datablocks">
+                <i className="fa-solid fa-droplet"></i>
+                <span className="label">Humidity</span>
+                <div className="value">{info.Humidity}</div>
+              </div>
 
-                            <div className='allinfo'>
+              <div className="datablocks">
+                <i className="fa-solid fa-temperature-arrow-down"></i>
+                <span className="label">Temp Min</span>
+                <div className="value">{info.tempMin}°C</div>
+              </div>
 
-                                <div className='datablocks'><i class="fa-solid fa-temperature-low"></i><br></br><span className='dataname'>Temperature</span>  {info.temperature}&deg;C</div>
-                                <div className='datablocks'><i class="fa-solid fa-droplet"></i> <br></br> <span className='dataname'>Humidity</span>  <br></br> {info.Humidity}</div>
-                                <div className='datablocks'><i class="fa-solid fa-temperature-arrow-down"></i> <br></br><span className='dataname'>Temp Min</span>  {info.tempMin}&deg;C</div>
-                                <div className='datablocks'><i class="fa-solid fa-temperature-arrow-up"></i> <br></br> <span className='dataname'>Temp Max</span>  {info.tempMax}&deg;C</div>
-                                <div className='datablocks'><i class="fa-solid fa-temperature-empty"></i><br></br><span className='dataname'>Feels Like</span>  {info.feels_like}&deg;C</div>
-                                <div className='datablocks'><i class="fa-solid fa-cloud"></i> <br></br> <span className='dataname'>Weather</span> <br></br> {info.weather}</div>
-                                <div className='datablocks'><i class="fa-solid fa-arrow-up-from-ground-water"></i> <br></br><span className='dataname'>Ground Level</span>  {info.Ground_Level}</div>
-                                <div className='datablocks'><i class="fa-solid fa-wind"></i> <br></br><span className='dataname'>Pressure</span> <br></br> {info.pressure}</div>
+              <div className="datablocks">
+                <i className="fa-solid fa-temperature-arrow-up"></i>
+                <span className="label">Temp Max</span>
+                <div className="value">{info.tempMax}°C</div>
+              </div>
 
-                            </div>
+              <div className="datablocks">
+                <i className="fa-solid fa-cloud"></i>
+                <span className="label">Weather</span>
+                <div className="value">{info.weather}</div>
+              </div>
 
-                        </Typography>
-
-                    </CardContent>
-
-                </Card>
-
+              <div className="datablocks">
+                <i className="fa-solid fa-wind"></i>
+                <span className="label">Pressure</span>
+                <div className="value">{info.pressure}</div>
+              </div>
             </div>
-
-        </div>
-
-    )
-} 
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}

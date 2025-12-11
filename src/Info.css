@@ -1,68 +1,206 @@
-.InfoBox {
-    text-align: center ;
+/* App.css (global) */
+* { 
+    box-sizing: border-box; 
 }
 
-.cardcontainer {
-    display: flex ;
-    justify-content: center;
-    margin: 2rem ;
+body, html, #root { 
+    height: 100%; 
+    margin: 0; 
+    font-family: "Inter", 
+    Roboto, sans-serif; 
+}
+
+/* Background container that changes image inline */
+.app-bg {
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.8s ease-in-out, background-position .6s ease;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding: 36px 18px;
+}
+
+/* main inner container */
+.container {
+  width:100%;
+  max-width: 1100px;
+}
+
+/* top brand */
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom: 6px;
+}
+.brand {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: .6px;
+}
+
+/* hero area - left big temp and right icon+smallstats */
+.hero-wrap {
+  display:flex;
+  gap: 26px;
+  align-items:center;
+  margin-bottom: 18px;
+}
+
+/* left column */
+.hero-left {
+  flex: 1 1 460px;
+  color: #fff;
+}
+.big-temp {
+  display:flex;
+  align-items:center;
+  gap: 18px;
+}
+.temp-number {
+  font-size: 5rem;
+  line-height: 1;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 12px 36px rgba(0,0,0,0.5);
+}
+.temp-meta { color: rgba(255,255,255,0.92); }
+.temp-meta .desc { font-size: 1.1rem; margin-top: 6px; font-weight:600; }
+
+/* right column */
+.hero-right {
+  width: 260px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 12px;
+  color: #fff;
+}
+.icon-lg {
+  font-size: 64px;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,0.45));
+}
+.small-stats { 
+    text-align:left; 
+    color: rgba(255,255,255,0.9); 
+}
+
+.small-stats div { 
+    margin:8px 0; 
+    font-weight:500; 
+}
+
+/* search-row (centered) */
+.search-row { 
+    display:flex; 
+    justify-content:center; 
+    margin: 8px 0 18px; 
+}
+
+/* InfoBox card styles (also put in Info.css) */
+.InfoBox { 
+    display:flex; 
+    justify-content:center; 
+    width: 100%; 
+}
+
+.cardcontainer { 
+    width:100%; 
+    max-width: 980px;
+    padding: 0 10px; 
 }
 
 .infocard {
-    width : 50% ;
-    background-color: rgb(221, 234, 244) !important;
-    box-shadow: 0 4px 8px rgba( 0 , 0 , 0 , 0.2 ) !important;
-    transition: transform 0.2s ease , box-shadow 0.2s ease !important;
+  border-radius: 18px !important;
+  overflow:hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,247,251,0.96));
+  box-shadow: 0 26px 60px rgba(2,8,30,0.38);
+  border: 1px solid rgba(255,255,255,0.5);
 }
 
+/* small hero image inside card */
+.cardmedia {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  /* REMOVE any hard-coded background in CSS */
+}
+
+
+/* title */
+.infocard .MuiTypography-h5 {
+  text-align:left;
+  font-weight: 800 !important;
+  font-size: 1.3rem;
+  color: #0b1222;
+}
+
+/* tiles grid */
 .allinfo {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin : 0.5rem ;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  padding: 12px;
 }
 
 .datablocks {
-    /* border : 1px solid black ; */
-    width : 100px ;
-    height : 75px ;
-    background : linear-gradient(145deg , #ffffff , #f0f0f0 ) ;
-    padding : 2px ;
-    margin : 0.5rem ;
-    border-radius: 14px;
-    box-shadow: 0 4px 8px rgba( 0 , 0 , 0 , 0.2 ) ;
-    text-align: center;
-    transition: transform 0.2s ease , box-shadow 0.2s ease ;
+  background: linear-gradient(180deg, #fff, #f6f8fb);
+  border-radius: 12px;
+  padding: 12px;
+  text-align:center;
+  box-shadow: 0 8px 20px rgba(8,20,40,0.06);
+  border: 1px solid rgba(8,20,40,0.03);
+  min-height: 92px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.datablocks i { 
+    font-size: 20px; 
+    color: #1766d6; 
+    margin-bottom: 8px; 
 }
 
-.datablocks:hover {
-    transform: translateY(-5px) ;
-    box-shadow: 0 8px 16px rgba ( 0 , 0 , 0 , 0.3 ) ;
+.datablocks .label { 
+    color: #5b6b86; 
+    font-size:0.9rem; 
+    margin-bottom:6px; 
 }
 
-.dataname {
-
-    font-weight: bold;
-    color: black;
-
+.datablocks .value { 
+    font-weight:700; 
+    font-size:1rem; 
+    color:#0b1222; 
 }
 
-.css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input {
-    color : white !important ;
-}
-
-@media screen and ( min-width: 324px ) and ( max-width : 660px ) {
-
-    .cardcontainer {
-        margin : 1rem ;
+@media (max-width: 900px) {
+    .hero-wrap { 
+        flex-direction: column; 
+        align-items:stretch; 
+        gap:10px; 
     }
 
-    .infocard {
-        width : 100% ;
-    }
-    
-    .allinfo {
-        margin: 0 ;
+    .hero-right { 
+        width:100%; 
+        flex-direction:row; 
+        justify-content:space-between; 
+        padding: 12px; 
+        background: rgba(255,255,255,0.06); 
+        border-radius: 12px; 
     }
 
+    .temp-number { 
+        font-size:3.6rem; 
+    }
+
+    .cardmedia { 
+            height:120px; 
+    }
 }
